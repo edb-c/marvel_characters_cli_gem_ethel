@@ -29,7 +29,7 @@ class MarvelCharactersCliGemEthel::CLI
 
   end #end start
 
-#Provide List View of Characters
+#Provide Detailed View of Selected Character
 
   def print_character(input)
 
@@ -40,7 +40,7 @@ class MarvelCharactersCliGemEthel::CLI
     puts "Character Type:   "      +   character_info.character_type
     puts "Number of Powers: "      +   character_info.number_of_powers.to_s
     puts "List of Powers:   "
-    puts character_info.list_of_powers.each{|one_power|  puts one_power.to_s}
+    puts character_info.list_of_powers.each{|one_power|  puts one_power.to_s if one_power.to_s != "0"}
     puts ""
     puts '--------------------------------'
   end
