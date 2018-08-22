@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/marvel_characters_cli_gem_ethel'
+
+MarvelCharactersCliGemEthel::CLI.new.call
