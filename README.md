@@ -20,6 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
+Change to your gem installation directory.  
+You can find it using gem environment gempath in your terminal.
+Cd to your gem folder.
 Type the below and follow the on screen prompts.
   ruby bin/marvel_characters_cli_gem_ethel
 
