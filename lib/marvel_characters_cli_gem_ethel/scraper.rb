@@ -21,6 +21,8 @@ class MarvelCharactersCliGemEthel::Scraper
     content2 = document2.read
     character_page = Nokogiri::HTML(content2)
 
+    number = input
+
     super_name = character_page.css('div.wiki-details').css('table').css('tr')[0].css('td').css('div').css('span').text
 
     real_name  = character_page.css('div.wiki-details').css('table').css('tr')[1].css('td').css('div').css('span').text
@@ -31,7 +33,7 @@ class MarvelCharactersCliGemEthel::Scraper
 
     list_of_powers =  character_page.css('div.wiki-details').css('table').css('tr')[11].css('td/div[1]/div').children
 
-    character_info = MarvelCharactersCliGemEthel::Characters.new(super_name, real_name, character_type, number_of_powers, list_of_powers)
+   character_info = MarvelCharactersCliGemEthel::Characters.new(number, super_name, real_name, character_type, number_of_powers, list_of_powers)
     character_info
   end
 

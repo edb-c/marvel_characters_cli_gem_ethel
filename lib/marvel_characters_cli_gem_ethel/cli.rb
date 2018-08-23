@@ -24,25 +24,30 @@ class MarvelCharactersCliGemEthel::CLI
     puts ""
     input = gets.strip.to_i-1
 
+    build_character(input)
     print_character(input)
     select_another_character
 
   end #end start
 
+#Create Character
+
+  def build_character(input)
+    MarvelCharactersCliGemEthel::Scraper.get_character_info(input)
+  end
+
 #Provide Detailed View of Selected Character
 
   def print_character(input)
-
-   character_info = MarvelCharactersCliGemEthel::Scraper.get_character_info(input)
-
-    puts "Super Name:       "      +   character_info.super_name
-    puts "Real Name:        "      +   character_info.real_name
-    puts "Character Type:   "      +   character_info.character_type
-    puts "Number of Powers: "      +   character_info.number_of_powers.to_s
-    puts "List of Powers:   "
-    puts character_info.list_of_powers.each{|one_power|  puts one_power.to_s if one_power.to_s != "0"}
-    puts ""
-    puts '--------------------------------'
+     acharacter = MarvelCharactersCliGemEthel::Characters
+     puts "Super Name:              #{acharacter.get_super_name}"
+     puts "Real Name:               #{acharacter.get_real_name}"
+     puts "Character Type:          #{acharacter.get_character_type}"
+     puts "Number of Powers:        #{acharacter.get_number_of_powers}"
+     puts "List of Powers:   "
+     puts acharacter.get_list_of_powers.each{|one_power|  puts one_power.to_s if one_power.to_s != "0"}
+     puts ""
+     puts '--------------------------------'
   end
 
   def select_another_character
