@@ -7,10 +7,12 @@ class MarvelCharactersCliGemEthel::CLI
     MarvelCharactersCliGemEthel::Scraper.get_main_page
 
 #Provide List View of Characters
+
     input = 0
+    @a_super_character_array = MarvelCharactersCliGemEthel::Characters.character_array
+    puts "in call - @a_super_character_array object id  #{@a_super_character_array.object_id}"
+1
     while input < 10
-      #puts "#{input+1}. #{MarvelCharactersCliGemEthel::Characters.character_array[input].super_name}"
-      @a_super_character_array = MarvelCharactersCliGemEthel::Characters.character_array
       puts "#{input+1}. #{@a_super_character_array[input].super_name}"
       input +=1
     end
@@ -41,17 +43,21 @@ class MarvelCharactersCliGemEthel::CLI
   def build_character(input)
     if @a_super_character_array[input].real_name == nil
       puts "The field @a_super_character_array[input].real_name is blank, calling get_character_info"
+      puts "In NEW build_character  - @a_super_character_array object id  #{@a_super_character_array.object_id}"
+
       MarvelCharactersCliGemEthel::Scraper.get_character_info(input)
     else
       puts "Character Already created - skipping to print_character method"
+      puts "In OLD build_character -  @a_super_character_array object id  #{@a_super_character_array.object_id}"
+
     end
   end
 
 #Provide Detailed View of Selected Character
 
   def print_character(input)
-
-     #acharacter = MarvelCharactersCliGemEthel::Characters.character_array[input]
+     puts "In print_character      - @a_super_character_array object id  #{@a_super_character_array.object_id}"
+     puts ""
      puts "Super Name:              #{@a_super_character_array[input].super_name}"
      puts "Real Name:               #{@a_super_character_array[input].real_name}"
      puts "Character Type:          #{@a_super_character_array[input].character_type}"

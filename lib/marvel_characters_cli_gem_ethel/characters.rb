@@ -10,7 +10,7 @@ class MarvelCharactersCliGemEthel::Characters
   end
 
   def self.character_array
-    @@character_array << self
+    @@character_array
   end
 
 end #end Class
