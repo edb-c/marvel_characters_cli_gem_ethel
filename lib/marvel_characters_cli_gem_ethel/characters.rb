@@ -1,16 +1,16 @@
 class MarvelCharactersCliGemEthel::Characters
 
-  attr_accessor :number, :super_name, :real_name, :character_type, :number_of_powers, :list_of_powers
+  attr_accessor :number, :super_name, :url, :real_name, :character_type, :number_of_powers, :list_of_powers
 
-  @@character_array = []
+  @@all = []
 
   def initialize
-    @@character_array << self
+    @@all << self
 #    binding.pry
   end
 
-  def self.character_array
-    @@character_array
+  def self.all
+    @@all
   end
 
 end #end Class

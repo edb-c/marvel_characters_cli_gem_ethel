@@ -9,11 +9,9 @@ class MarvelCharactersCliGemEthel::CLI
 #Provide List View of Characters
 
     input = 0
-    @a_super_character_array = MarvelCharactersCliGemEthel::Characters.character_array
-    puts "in call - @a_super_character_array object id  #{@a_super_character_array.object_id}"
-1
+
     while input < 10
-      puts "#{input+1}. #{@a_super_character_array[input].super_name}"
+      puts "#{input+1}. #{MarvelCharactersCliGemEthel::Characters.all[input].super_name}"
       input +=1
     end
 
@@ -41,29 +39,21 @@ class MarvelCharactersCliGemEthel::CLI
 #If it has NOT been built before
 
   def build_character(input)
-    if @a_super_character_array[input].real_name == nil
-      puts "The field @a_super_character_array[input].real_name is blank, calling get_character_info"
-      puts "In NEW build_character  - @a_super_character_array object id  #{@a_super_character_array.object_id}"
-
+    if MarvelCharactersCliGemEthel::Characters.all[input].real_name == nil
       MarvelCharactersCliGemEthel::Scraper.get_character_info(input)
-    else
-      puts "Character Already created - skipping to print_character method"
-      puts "In OLD build_character -  @a_super_character_array object id  #{@a_super_character_array.object_id}"
-
     end
   end
 
 #Provide Detailed View of Selected Character
 
   def print_character(input)
-     puts "In print_character      - @a_super_character_array object id  #{@a_super_character_array.object_id}"
      puts ""
-     puts "Super Name:              #{@a_super_character_array[input].super_name}"
-     puts "Real Name:               #{@a_super_character_array[input].real_name}"
-     puts "Character Type:          #{@a_super_character_array[input].character_type}"
-     puts "Number of Powers:        #{@a_super_character_array[input].number_of_powers}"
+     puts "Super Name:              #{MarvelCharactersCliGemEthel::Characters.all[input].super_name}"
+     puts "Real Name:               #{MarvelCharactersCliGemEthel::Characters.all[input].real_name}"
+     puts "Character Type:          #{MarvelCharactersCliGemEthel::Characters.all[input].character_type}"
+     puts "Number of Powers:        #{MarvelCharactersCliGemEthel::Characters.all[input].number_of_powers}"
      puts "List of Powers:   "
-     puts @a_super_character_array[input].list_of_powers
+     puts MarvelCharactersCliGemEthel::Characters.all[input].list_of_powers
      puts ""
      puts '--------------------------------'
   end
